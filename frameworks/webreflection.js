@@ -48,5 +48,11 @@ var utility = {
         }:
         function(name, callback){
             this.detachEvent(name, callback);
-        }
+        },
+    makeArray: function(obj) {
+      var arr = [];
+      for (var i = obj.length; i--;)
+          arr[i] = obj[i];
+          return arr;
+      }
 };

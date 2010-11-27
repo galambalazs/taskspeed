@@ -39,7 +39,7 @@ window.tests = {
         for(var
             attachEvent = utility.attachEvent,
             callback = function(){},
-            li = document.body.getElementsByTagName("li"),
+            li = document.getElementsByTagName("li"),
             length = li.length, i = 0, total = 0,
             node;
             i < length; ++i
@@ -55,7 +55,7 @@ window.tests = {
 
     "attr" : function(){
         for(var
-            ul = document.body.getElementsByTagName("ul"),
+            ul = document.getElementsByTagName("ul"),
             result = [],
             length = ul.length, i = 0;
             i < length; ++i
@@ -70,7 +70,7 @@ window.tests = {
             attachEvent = utility.attachEvent,
             detachEvent = utility.detachEvent,
             callback = function(){},
-            li = document.body.getElementsByTagName("li"),
+            li = document.getElementsByTagName("li"),
             length = li.length, i = 0, total = 0,
             node;
             i < length; ++i
@@ -140,7 +140,7 @@ window.tests = {
     },
 
     "addclass-odd" : function(){
-        for(var div = document.body.getElementsByTagName("div"), length = div.length, i = 0, total = 0; i < length; ++i)
+        for(var div = document.getElementsByTagName("div"), length = div.length, i = 0, total = 0; i < length; ++i)
             total += i % 2 ? !!(div[i].className += " added odd") : !(div[i].className += " added");
         return  total;
     },
@@ -163,14 +163,8 @@ window.tests = {
     },
     
     "sethtml": function(){
-        function makeArray(obj) {
-            var arr = [];
-            for (var i = obj.length; i--;)
-                arr[i] = obj[i];
-            return arr;
-        }
-        var div = document.body.getElementsByTagName("div");
-        var nodes = makeArray(div);
+        var div = document.getElementsByTagName("div");
+        var nodes = utility.makeArray(div);
         for (var i = nodes.length; i--;) {
             nodes[i].innerHTML = "<p>new content</p>";
         }

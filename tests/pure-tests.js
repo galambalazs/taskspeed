@@ -163,11 +163,18 @@ window.tests = {
     },
     
     "sethtml": function(){
-        var div = document.body.getElementsByTagName("div"), i = 0, node;
-        while(node = div[i++])
-            node.innerHTML = "<p>new content</p>"
-        ;
-        return  div.length;
+        function makeArray(obj) {
+            var arr = [];
+            for (var i = obj.length; i--;)
+                arr[i] = obj[i];
+            return arr;
+        }
+        var div = document.body.getElementsByTagName("div");
+        var nodes = makeArray(div);
+        for (var i = nodes.length; i--;) {
+            nodes[i].innerHTML = "<p>new content</p>";
+        }
+        return div.length;
     },
 
     "insertbefore" : function(){
